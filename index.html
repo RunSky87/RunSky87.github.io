@@ -1,27 +1,39 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html>
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
   <title>Hexo</title>
-  <meta name="author" content="John Doe">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="author" content="John Doe" />
 
   
-  <meta property="og:site_name" content="Hexo"/>
 
   
-    <meta property="og:image" content=""/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  
+  <meta property="og:site_name" content="Hexo" />
+
+  
   
 
-  <link rel="shortcut icon" href="/favicon.png">
   
+    <meta property="og:image" content="" />
   
-<link rel="stylesheet" href="/css/style.css">
 
-  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
   
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
 
 <meta name="generator" content="Hexo 5.4.0"></head>
 
@@ -34,24 +46,23 @@
 <nav id="main-nav" class="alignright">
   <ul>
     
-      <li><a href="/null">Home</a></li>
+      <li><a href="/">Home</a></li>
     
       <li><a href="/archives">Archives</a></li>
     
   </ul>
   <div class="clearfix"></div>
 </nav>
-<div class="clearfix"></div>
-</header>
+<div class="clearfix"></div></header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-  <article id="post-init-hexo-md" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <article class="post">
   
   <div class="post-content">
     <header>
       
         <div class="icon"></div>
-        <time class="dt-published" datetime="2021-03-10T12:08:37.000Z"><a href="/2021/03/10/init-hexo-md/">2021-03-10</a></time>
+        <time datetime="2021-03-10T12:08:37.000Z"><a href="/2021/03/10/init-hexo-md/">2021-03-10</a></time>
       
       
   
@@ -59,17 +70,21 @@
   
 
     </header>
-    <div class="e-content entry" itemprop="articleBody">
+    <div class="entry">
       
         <h2 id="hexo-初始化"><a href="#hexo-初始化" class="headerlink" title="hexo 初始化"></a>hexo 初始化</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;dirname&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;dirname&gt;</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">--- 假设报错</span><br><span class="line">npm ERR! ejs@2.7.4 postinstall: `node ./postinstall.js`</span><br><span class="line"></span><br><span class="line">: 执行</span><br><span class="line">npm install ejs@2.7.4 --ignore-scripts</span><br><span class="line">再 npm install</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 
       
     </div>
+    
     <footer>
-      
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
         
         
-      
+        <!-- partial('post/share') -->
       <div class="clearfix"></div>
     </footer>
   </div>
@@ -78,13 +93,14 @@
 
 
 
-  <article id="post-test1-md" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+
+  <article class="post">
   
   <div class="post-content">
     <header>
       
         <div class="icon"></div>
-        <time class="dt-published" datetime="2021-03-10T11:15:26.000Z"><a href="/2021/03/10/test1-md/">2021-03-10</a></time>
+        <time datetime="2021-03-10T11:15:26.000Z"><a href="/2021/03/10/test1-md/">2021-03-10</a></time>
       
       
   
@@ -92,16 +108,20 @@
   
 
     </header>
-    <div class="e-content entry" itemprop="articleBody">
+    <div class="entry">
       
         <h2 id="asdfasdf"><a href="#asdfasdf" class="headerlink" title="asdfasdf"></a>asdfasdf</h2>
       
     </div>
+    
     <footer>
-      
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
         
         
-      
+        <!-- partial('post/share') -->
       <div class="clearfix"></div>
     </footer>
   </div>
@@ -110,13 +130,14 @@
 
 
 
-  <article id="post-hello-world" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+
+  <article class="post">
   
   <div class="post-content">
     <header>
       
         <div class="icon"></div>
-        <time class="dt-published" datetime="2021-03-10T10:40:21.595Z"><a href="/2021/03/10/hello-world/">2021-03-10</a></time>
+        <time datetime="2021-03-10T10:40:21.595Z"><a href="/2021/03/10/hello-world/">2021-03-10</a></time>
       
       
   
@@ -124,7 +145,7 @@
   
 
     </header>
-    <div class="e-content entry" itemprop="articleBody">
+    <div class="entry">
       
         <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
@@ -142,11 +163,15 @@
 
       
     </div>
+    
     <footer>
-      
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
         
         
-      
+        <!-- partial('post/share') -->
       <div class="clearfix"></div>
     </footer>
   </div>
@@ -156,17 +181,39 @@
 
 
 
+
 <nav id="pagination">
   
-  
-  <div class="clearfix"></div>
-</nav></div></div>
+</nav>
+</div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
     <input type="search" name="q" results="0" placeholder="Search">
-    <input type="hidden" name="as_sitesearch" value="example.com">
+    <input type="hidden" name="q" value="site:example.com">
   </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2021/03/10/init-hexo-md/">init-hexo.md</a>
+      </li>
+    
+      <li>
+        <a href="/2021/03/10/test1-md/">test1.md</a>
+      </li>
+    
+      <li>
+        <a href="/2021/03/10/hello-world/">Hello World</a>
+      </li>
+    
+  </ul>
 </div>
 
 
@@ -177,35 +224,29 @@
     <div class="clearfix"></div>
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
+  <p>
   
   &copy; 2021 John Doe
   
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
 </div>
-<div class="clearfix"></div></footer>
-  
-<script src="/js/jquery-3.4.1.min.js"></script>
+<div class="clearfix"></div>
 
-
-<script src="/js/jquery.imagesloaded.min.js"></script>
-
-
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 
-
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-<script>
+<script type="text/javascript">
 (function($){
   $('.fancybox').fancybox();
 })(jQuery);
 </script>
 
+
+<div id='bg'></div>
 </body>
 </html>
