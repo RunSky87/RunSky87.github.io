@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="asdfasdf">
+  <meta name="description" content="Linux：关闭占用端口的进程 使用端口号1234567891011[root@localhost _posts]# lsof -i:8888bash: lsof: 未找到命令[root@localhost _posts]# yum install lsof.....[root@localhost _posts]# lsof -i:8888COMMAND   PID USER   FD   TYP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="test1.md">
-<meta property="og:url" content="http://example.com/2021/03/10/test1-md/index.html">
+<meta property="og:title" content="Linux：关闭占用端口的进程.md">
+<meta property="og:url" content="http://example.com/2021/03/11/Linux%EF%BC%9A%E5%85%B3%E9%97%AD%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B-md/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="asdfasdf">
+<meta property="og:description" content="Linux：关闭占用端口的进程 使用端口号1234567891011[root@localhost _posts]# lsof -i:8888bash: lsof: 未找到命令[root@localhost _posts]# yum install lsof.....[root@localhost _posts]# lsof -i:8888COMMAND   PID USER   FD   TYP">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-03-10T11:15:26.000Z">
-<meta property="article:modified_time" content="2021-03-10T12:06:39.500Z">
+<meta property="article:published_time" content="2021-03-11T03:52:04.000Z">
+<meta property="article:modified_time" content="2021-03-11T03:55:33.102Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/03/10/test1-md/">
+<link rel="canonical" href="http://example.com/2021/03/11/Linux%EF%BC%9A%E5%85%B3%E9%97%AD%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B-md/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>test1.md | Hexo</title>
+  <title>Linux：关闭占用端口的进程.md | Hexo</title>
   
 
 
@@ -150,7 +150,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/10/test1-md/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/11/Linux%EF%BC%9A%E5%85%B3%E9%97%AD%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B-md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -163,7 +163,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          test1.md
+          Linux：关闭占用端口的进程.md
         </h1>
 
         <div class="post-meta">
@@ -174,7 +174,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-03-10 19:15:26 / Modified: 20:06:39" itemprop="dateCreated datePublished" datetime="2021-03-10T19:15:26+08:00">2021-03-10</time>
+              <time title="Created: 2021-03-11 11:52:04 / Modified: 11:55:33" itemprop="dateCreated datePublished" datetime="2021-03-11T11:52:04+08:00">2021-03-11</time>
             </span>
 
           
@@ -188,7 +188,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="asdfasdf"><a href="#asdfasdf" class="headerlink" title="asdfasdf"></a>asdfasdf</h2>
+        <h2 id="Linux：关闭占用端口的进程"><a href="#Linux：关闭占用端口的进程" class="headerlink" title="Linux：关闭占用端口的进程"></a>Linux：关闭占用端口的进程</h2><ul>
+<li>使用端口号<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost _posts]<span class="comment"># lsof -i:8888</span></span><br><span class="line">bash: lsof: 未找到命令</span><br><span class="line">[root@localhost _posts]<span class="comment"># yum install lsof</span></span><br><span class="line">.....</span><br><span class="line"></span><br><span class="line">[root@localhost _posts]<span class="comment"># lsof -i:8888</span></span><br><span class="line">COMMAND   PID USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME</span><br><span class="line">node    47161 root   20u  IPv6 1354694      0t0  TCP *:ddi-tcp-1 (LISTEN)</span><br><span class="line">[root@localhost _posts]<span class="comment"># kill -9 47161</span></span><br><span class="line">[root@localhost _posts]<span class="comment"># lsof -i:8888</span></span><br><span class="line">[6]+  已杀死               hexo s</span><br></pre></td></tr></table></figure></li>
+</ul>
+
     </div>
 
     
@@ -203,13 +206,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/03/10/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
+    <a href="/2021/03/11/hexo%E8%87%AA%E5%8A%A8%E4%BF%9D%E5%AD%98%E5%9F%9F%E5%90%8D-md/" rel="prev" title="hexo自动保存域名.md">
+      <i class="fa fa-chevron-left"></i> hexo自动保存域名.md
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/03/10/init-hexo-md/" rel="next" title="init-hexo.md">
-      init-hexo.md <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -268,7 +268,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#asdfasdf"><span class="nav-number">1.</span> <span class="nav-text">asdfasdf</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%EF%BC%9A%E5%85%B3%E9%97%AD%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">Linux：关闭占用端口的进程</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

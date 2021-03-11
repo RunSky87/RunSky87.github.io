@@ -145,6 +145,67 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/11/Linux%EF%BC%9A%E5%85%B3%E9%97%AD%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/11/Linux%EF%BC%9A%E5%85%B3%E9%97%AD%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B-md/" class="post-title-link" itemprop="url">Linux：关闭占用端口的进程.md</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-11 11:52:04 / Modified: 11:55:33" itemprop="dateCreated datePublished" datetime="2021-03-11T11:52:04+08:00">2021-03-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Linux：关闭占用端口的进程"><a href="#Linux：关闭占用端口的进程" class="headerlink" title="Linux：关闭占用端口的进程"></a>Linux：关闭占用端口的进程</h2><ul>
+<li>使用端口号<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost _posts]<span class="comment"># lsof -i:8888</span></span><br><span class="line">bash: lsof: 未找到命令</span><br><span class="line">[root@localhost _posts]<span class="comment"># yum install lsof</span></span><br><span class="line">.....</span><br><span class="line"></span><br><span class="line">[root@localhost _posts]<span class="comment"># lsof -i:8888</span></span><br><span class="line">COMMAND   PID USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME</span><br><span class="line">node    47161 root   20u  IPv6 1354694      0t0  TCP *:ddi-tcp-1 (LISTEN)</span><br><span class="line">[root@localhost _posts]<span class="comment"># kill -9 47161</span></span><br><span class="line">[root@localhost _posts]<span class="comment"># lsof -i:8888</span></span><br><span class="line">[6]+  已杀死               hexo s</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/11/hexo%E8%87%AA%E5%8A%A8%E4%BF%9D%E5%AD%98%E5%9F%9F%E5%90%8D-md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -309,64 +370,6 @@
       
           <h2 id="hexo-初始化"><a href="#hexo-初始化" class="headerlink" title="hexo 初始化"></a>hexo 初始化</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;dirname&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;dirname&gt;</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line">--- 假设报错</span><br><span class="line">npm ERR! ejs@2.7.4 postinstall: `node ./postinstall.js`</span><br><span class="line"></span><br><span class="line">: 执行</span><br><span class="line">npm install ejs@2.7.4 --ignore-scripts</span><br><span class="line">再 npm install</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/10/test1-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/10/test1-md/" class="post-title-link" itemprop="url">test1.md</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-03-10 19:15:26 / Modified: 20:06:39" itemprop="dateCreated datePublished" datetime="2021-03-10T19:15:26+08:00">2021-03-10</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="asdfasdf"><a href="#asdfasdf" class="headerlink" title="asdfasdf"></a>asdfasdf</h2>
       
     </div>
 
