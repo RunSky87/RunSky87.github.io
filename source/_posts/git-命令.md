@@ -20,6 +20,8 @@ $ git checkout -B new-branch-name
 $ git checkout file-name
 ```
 
+<!-- more -->
+
 - 使用暂存区内容覆盖工作区所有文件内容
 ```bash
 $ git checkout .
