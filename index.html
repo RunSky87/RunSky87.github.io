@@ -175,7 +175,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-03-14 11:16:26 / Modified: 14:31:07" itemprop="dateCreated datePublished" datetime="2021-03-14T11:16:26+08:00">2021-03-14</time>
+              <time title="Created: 2021-03-14 11:16:26 / Modified: 22:29:42" itemprop="dateCreated datePublished" datetime="2021-03-14T11:16:26+08:00">2021-03-14</time>
             </span>
 
           
@@ -257,7 +257,7 @@
 </tbody></table>
 <h3 id="常用状态码"><a href="#常用状态码" class="headerlink" title="常用状态码"></a>常用状态码</h3><p><strong>2XX——表明请求被正常处理了</strong><br>1、200 OK：请求已正常处理。<br>2、204 No Content：请求处理成功，但没有任何资源可以返回给客户端，一般在只需要从客户端往服务器发送信息，而对客户端不需要发送新信息内容的情况下使用。<br>3、206 Partial Content：是对资源某一部分的请求，该状态码表示客户端进行了范围请求，而服务器成功执行了这部分的GET请求。响应报文中包含由Content-Range指定范围的实体内容。<br><strong>3XX——表明浏览器需要执行某些特殊的处理以正确处理请求</strong><br>4、301 Moved Permanently：永久性重定向，请求的资源已经被分配了新的URI，以后应使用资源现在所指的URI。<br>5、302 Found：临时性重定向。和301相似，但302代表的资源不是永久性移动，只是临时性性质的。换句话说，已移动的资源对应的URI将来还有可能发生改变。<br>6、303 See Other：资源的URI已更新，你是否能临时按新的URI访问。该状态码表示由于请求对应的资源存在着另一个URL，应使用GET方法定向获取请求的资源。303状态码和302状态码有着相同的功能，但303状态码明确表示客户端应当采用GET方法获取资源，这点与302状态码有区别。<br>当301,302,303响应状态码返回时，几乎所有的浏览器都会把POST改成GET，并删除请求报文内的主体，之后请求会自动再次发送。<br>7、304 Not Modified：资源已找到，但未符合条件请求。该状态码表示客户端发送附带条件的请求时（采用GET方法的请求报文中包含If-Match，If-Modified-Since，If-None-Match，If-Range，If-Unmodified-Since中任一首部）服务端允许请求访问资源，但因发生请求未满足条件的情况后，直接返回304.。<br>8、307 Temporary Redirect：临时重定向。与302有相同的含义。<br><strong>4XX——表明客户端是发生错误的原因所在。</strong><br>9、400 Bad Request：服务器端无法理解客户端发送的请求，请求报文中可能存在语法错误。<br>10、401 Unauthorized：该状态码表示发送的请求需要有通过HTTP认证（BASIC认证，DIGEST认证）的认证信息。<br>11、403 Forbidden：不允许访问那个资源。该状态码表明对请求资源的访问被服务器拒绝了。（权限，未授权IP等）<br>12、404 Not Found：服务器上没有请求的资源。路径错误等。<br><strong>5XX——服务器本身发生错误</strong><br>13、500 Internal Server Error：貌似内部资源出故障了。该状态码表明服务器端在执行请求时发生了错误。也有可能是web应用存在bug或某些临时故障。<br>14、503 Service Unavailable：抱歉，我现在正在忙着。该状态码表明服务器暂时处于超负载或正在停机维护，现在无法处理请求。</p>
 <h3 id="代理、网关、隧道的特点"><a href="#代理、网关、隧道的特点" class="headerlink" title="代理、网关、隧道的特点"></a>代理、网关、隧道的特点</h3><p>代理: 代理是一种有转发功能的应用程序，它扮演了位于服务器和客户端“中间人”的角色，接收由客户端发送的请求并转发给服务器，同时也接收服务器返回的响应并转发给客户端。每次通过代理服务器转发请求或响应时，都会追加写入via首部信息。因此，在转发时会附加via首部字段以标记经过的主机信息。<br>网关: 网关的工作机制和代理十分相似,而网关能使通信线路上的服务器提供非 HTTP 协议服务。即网关可以将经过的http请求转化为其他协议通信类型。<br>隧道: 隧道可按要求建立起一条与其他服务器的通信线路，届时使用 SSL 等加密手段进行通信。隧道的目的是确保客户端能与服务器进行安全的通信。隧道本身不会去解析http请求，也就是在传输的时候可以保证数据的原样性。</p>
-
+<h3 id="HTTP-的缺点"><a href="#HTTP-的缺点" class="headerlink" title="HTTP 的缺点"></a>HTTP 的缺点</h3>
       
     </div>
 
@@ -366,7 +366,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-14 10:50:53" itemprop="dateModified" datetime="2021-03-14T10:50:53+08:00">2021-03-14</time>
+                <time title="Modified: 2021-03-15 11:40:12" itemprop="dateModified" datetime="2021-03-15T11:40:12+08:00">2021-03-15</time>
               </span>
 
           
@@ -509,6 +509,11 @@ document.querySelector("body").style.cursor = 'url(https://blog.shanamaid.top/cs
 !function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 500%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
 </script>
 
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=seti&wt=none&l=auto&ds=true&dsyoff=16px&dsblur=14px&wc=true&wa=true&pv=34px&ph=48px&ln=false&fl=1&fm=Hack&fs=13px&lh=148%25&si=false&es=2x&wm=false&code=var%2520spiralOrder%2520%253D%2520function%28matrix%29%2520%257B%250A%2520%2520%2520%2520if%2520%28%21matrix.length%2520%257C%257C%2520%21matrix%255B0%255D.length%29%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520return%2520%255B%255D%253B%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520const%2520rows%2520%253D%2520matrix.length%252C%2520columns%2520%253D%2520matrix%255B0%255D.length%253B%250A%2520%2520%2520%2520const%2520visited%2520%253D%2520new%2520Array%28rows%29.fill%280%29.map%28%28%29%2520%253D%253E%2520new%2520Array%28columns%29.fill%28false%29%29%253B%250A%2520%2520%2520%2520const%2520total%2520%253D%2520rows%2520*%2520columns%253B%250A%2520%2520%2520%2520const%2520order%2520%253D%2520new%2520Array%28total%29.fill%280%29%253B%250A%250A%2520%2520%2520%2520let%2520directionIndex%2520%253D%25200%252C%2520row%2520%253D%25200%252C%2520column%2520%253D%25200%253B%250A%2520%2520%2520%2520const%2520directions%2520%253D%2520%255B%255B0%252C%25201%255D%252C%2520%255B1%252C%25200%255D%252C%2520%255B0%252C%2520-1%255D%252C%2520%255B-1%252C%25200%255D%255D%253B%250A%2520%2520%2520%2520for%2520%28let%2520i%2520%253D%25200%253B%2520i%2520%253C%2520total%253B%2520i%252B%252B%29%2520%257B%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520order%255Bi%255D%2520%253D%2520matrix%255Brow%255D%255Bcolumn%255D%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520visited%255Brow%255D%255Bcolumn%255D%2520%253D%2520true%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520const%2520nextRow%2520%253D%2520row%2520%252B%2520directions%255BdirectionIndex%255D%255B0%255D%252C%2520nextColumn%2520%253D%2520column%2520%252B%2520directions%255BdirectionIndex%255D%255B1%255D%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520if%2520%28%21%280%2520%253C%253D%2520nextRow%2520%2526%2526%2520nextRow%2520%253C%2520rows%2520%2526%2526%25200%2520%253C%253D%2520nextColumn%2520%2526%2526%2520nextColumn%2520%253C%2520columns%2520%2526%2526%2520%21%28visited%255BnextRow%255D%255BnextColumn%255D%29%29%29%2520%257B%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520directionIndex%2520%253D%2520%28directionIndex%2520%252B%25201%29%2520%2525%25204%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520%2520%2520%2520%2520row%2520%252B%253D%2520directions%255BdirectionIndex%255D%255B0%255D%253B%250A%2520%2520%2520%2520%2520%2520%2520%2520column%2520%252B%253D%2520directions%255BdirectionIndex%255D%255B1%255D%253B%250A%2520%2520%2520%2520%257D%250A%2520%2520%2520%2520return%2520order%253B%250A%257D%253B"
+  style="width: 1024px; height: 698px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
 
       
     </div>
