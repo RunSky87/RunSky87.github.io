@@ -150,6 +150,96 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/15/git-%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/15/git-%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">git-命令</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-15 14:58:35 / Modified: 16:12:03" itemprop="dateCreated datePublished" datetime="2021-03-15T14:58:35+08:00">2021-03-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="git-checkout-命令"><a href="#git-checkout-命令" class="headerlink" title="git checkout 命令"></a>git checkout 命令</h3><ul>
+<li><p>创建并切换到新的分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b new-branch-name</span><br></pre></td></tr></table></figure></li>
+<li><p>强制创建并切换到新的分支，如果有同名分支则将其覆盖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -B new-branch-name</span><br></pre></td></tr></table></figure></li>
+<li><p>使用暂存区内容覆盖工作区内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout file-name</span><br></pre></td></tr></table></figure></li>
+<li><p>使用暂存区内容覆盖工作区所有文件内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout .</span><br></pre></td></tr></table></figure></li>
+<li><p>切换分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout branch-name</span><br></pre></td></tr></table></figure></li>
+<li><p>为了防止暂存区内容覆盖和切换分支误判，建议用下面的命令获取暂存区内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -- file-name</span><br></pre></td></tr></table></figure></li>
+<li><p>使用指定commit内容覆盖工作区</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout commit-hash-id -- file-name</span><br></pre></td></tr></table></figure></li>
+<li><p>使用指定分支的最新暂存区内容覆盖当前工作区内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout branch-name -- file-name</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="git-branch-命令"><a href="#git-branch-命令" class="headerlink" title="git branch 命令"></a>git branch 命令</h3><h3 id="git-remote-命令"><a href="#git-remote-命令" class="headerlink" title="git remote 命令"></a>git remote 命令</h3><ul>
+<li><p>查看远程仓库信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br></pre></td></tr></table></figure></li>
+<li><p>查看远程仓库的各个分支信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote show origin</span><br></pre></td></tr></table></figure>
+<p>这个命令列出了当你在特定的分支上执行 git push 会自动地推送到哪一个远程分支。它也同样地列出了哪些远程分支不在你的本地，哪些远程分支已经从服务器上移除了。</p>
+</li>
+<li><p>刷新本地仓库与远程仓库保持同步改动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote prune origin</span><br></pre></td></tr></table></figure></li>
+<li><p>查看无效的远程分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote prune origin --dry-run</span><br></pre></td></tr></table></figure></li>
+<li><p>清理无效的远程分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote prune origin</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/14/%E5%9B%BE%E8%A7%A3-HTTP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -173,10 +263,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-03-14 11:16:26 / Modified: 22:29:42" itemprop="dateCreated datePublished" datetime="2021-03-14T11:16:26+08:00">2021-03-14</time>
+              <time title="Created: 2021-03-14 11:16:26" itemprop="dateCreated datePublished" datetime="2021-03-14T11:16:26+08:00">2021-03-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-15 12:38:21" itemprop="dateModified" datetime="2021-03-15T12:38:21+08:00">2021-03-15</time>
+              </span>
 
           
 
@@ -257,7 +353,12 @@
 </tbody></table>
 <h3 id="常用状态码"><a href="#常用状态码" class="headerlink" title="常用状态码"></a>常用状态码</h3><p><strong>2XX——表明请求被正常处理了</strong><br>1、200 OK：请求已正常处理。<br>2、204 No Content：请求处理成功，但没有任何资源可以返回给客户端，一般在只需要从客户端往服务器发送信息，而对客户端不需要发送新信息内容的情况下使用。<br>3、206 Partial Content：是对资源某一部分的请求，该状态码表示客户端进行了范围请求，而服务器成功执行了这部分的GET请求。响应报文中包含由Content-Range指定范围的实体内容。<br><strong>3XX——表明浏览器需要执行某些特殊的处理以正确处理请求</strong><br>4、301 Moved Permanently：永久性重定向，请求的资源已经被分配了新的URI，以后应使用资源现在所指的URI。<br>5、302 Found：临时性重定向。和301相似，但302代表的资源不是永久性移动，只是临时性性质的。换句话说，已移动的资源对应的URI将来还有可能发生改变。<br>6、303 See Other：资源的URI已更新，你是否能临时按新的URI访问。该状态码表示由于请求对应的资源存在着另一个URL，应使用GET方法定向获取请求的资源。303状态码和302状态码有着相同的功能，但303状态码明确表示客户端应当采用GET方法获取资源，这点与302状态码有区别。<br>当301,302,303响应状态码返回时，几乎所有的浏览器都会把POST改成GET，并删除请求报文内的主体，之后请求会自动再次发送。<br>7、304 Not Modified：资源已找到，但未符合条件请求。该状态码表示客户端发送附带条件的请求时（采用GET方法的请求报文中包含If-Match，If-Modified-Since，If-None-Match，If-Range，If-Unmodified-Since中任一首部）服务端允许请求访问资源，但因发生请求未满足条件的情况后，直接返回304.。<br>8、307 Temporary Redirect：临时重定向。与302有相同的含义。<br><strong>4XX——表明客户端是发生错误的原因所在。</strong><br>9、400 Bad Request：服务器端无法理解客户端发送的请求，请求报文中可能存在语法错误。<br>10、401 Unauthorized：该状态码表示发送的请求需要有通过HTTP认证（BASIC认证，DIGEST认证）的认证信息。<br>11、403 Forbidden：不允许访问那个资源。该状态码表明对请求资源的访问被服务器拒绝了。（权限，未授权IP等）<br>12、404 Not Found：服务器上没有请求的资源。路径错误等。<br><strong>5XX——服务器本身发生错误</strong><br>13、500 Internal Server Error：貌似内部资源出故障了。该状态码表明服务器端在执行请求时发生了错误。也有可能是web应用存在bug或某些临时故障。<br>14、503 Service Unavailable：抱歉，我现在正在忙着。该状态码表明服务器暂时处于超负载或正在停机维护，现在无法处理请求。</p>
 <h3 id="代理、网关、隧道的特点"><a href="#代理、网关、隧道的特点" class="headerlink" title="代理、网关、隧道的特点"></a>代理、网关、隧道的特点</h3><p>代理: 代理是一种有转发功能的应用程序，它扮演了位于服务器和客户端“中间人”的角色，接收由客户端发送的请求并转发给服务器，同时也接收服务器返回的响应并转发给客户端。每次通过代理服务器转发请求或响应时，都会追加写入via首部信息。因此，在转发时会附加via首部字段以标记经过的主机信息。<br>网关: 网关的工作机制和代理十分相似,而网关能使通信线路上的服务器提供非 HTTP 协议服务。即网关可以将经过的http请求转化为其他协议通信类型。<br>隧道: 隧道可按要求建立起一条与其他服务器的通信线路，届时使用 SSL 等加密手段进行通信。隧道的目的是确保客户端能与服务器进行安全的通信。隧道本身不会去解析http请求，也就是在传输的时候可以保证数据的原样性。</p>
-<h3 id="HTTP-的缺点"><a href="#HTTP-的缺点" class="headerlink" title="HTTP 的缺点"></a>HTTP 的缺点</h3>
+<h3 id="HTTP-的缺点"><a href="#HTTP-的缺点" class="headerlink" title="HTTP 的缺点"></a>HTTP 的缺点</h3><ul>
+<li>通信使用明文（不加密），内容可能会被窃听</li>
+<li>不验证通信方的身份，因此有可能遭遇伪装</li>
+<li>无法证明报文的完整性，所以有可能已遭篡改</li>
+</ul>
+
       
     </div>
 
@@ -366,7 +467,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-15 11:40:12" itemprop="dateModified" datetime="2021-03-15T11:40:12+08:00">2021-03-15</time>
+                <time title="Modified: 2021-03-15 12:19:53" itemprop="dateModified" datetime="2021-03-15T12:19:53+08:00">2021-03-15</time>
               </span>
 
           
@@ -514,6 +615,8 @@ document.querySelector("body").style.cursor = 'url(https://blog.shanamaid.top/cs
   style="width: 1024px; height: 698px; border:0; transform: scale(1); overflow:hidden;"
   sandbox="allow-scripts allow-same-origin">
 </iframe>
+
+<p><img src="https://zhangbaoyuan.oss-cn-shanghai.aliyuncs.com/test/carbon.png?versionId=CAEQIBiBgMC3_7XQwRciIGE1ZjRmY2ZmOTY4NzQ5ODNiMTFkMmQ4ZDc1YTA2YmU2" alt="https://zhangbaoyuan.oss-cn-shanghai.aliyuncs.com/test/carbon.png?versionId=CAEQIBiBgMC3_7XQwRciIGE1ZjRmY2ZmOTY4NzQ5ODNiMTFkMmQ4ZDc1YTA2YmU2"></p>
 
       
     </div>
@@ -910,78 +1013,11 @@ document.querySelector("body").style.cursor = 'url(https://blog.shanamaid.top/cs
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/10/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/10/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-03-10 18:40:21" itemprop="dateCreated datePublished" datetime="2021-03-10T18:40:21+08:00">2021-03-10</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
 
 
 
@@ -1046,14 +1082,14 @@ document.querySelector("body").style.cursor = 'url(https://blog.shanamaid.top/cs
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
