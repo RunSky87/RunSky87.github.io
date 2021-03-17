@@ -16,6 +16,8 @@ var a = 12321
 ```C
 var a = 12321
 ```
+<!-- more -->
+
 ```C#
 var a = 12321
 using System;
