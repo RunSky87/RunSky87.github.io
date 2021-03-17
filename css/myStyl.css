@@ -1,0 +1,10 @@
+.posts-expand .post-body {
+  font-size: 1em;
+  line-height: 1.7em;
+}
+.highlight {
+  border-radius: 5px;
+}
+.highlight .table-container {
+  border-radius: 5px;
+}
