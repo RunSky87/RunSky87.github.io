@@ -78,3 +78,49 @@ $ git remote prune origin --dry-run
 ```bash
 $ git remote prune origin
 ```
+
+### git branch 命令
+- 查看本地分支
+```bash
+git branch
+```
+
+- 查看远程分支
+```bash
+git branch -r
+```
+
+- 查看所有分支
+```bash
+git branch -a
+```
+
+- 给分支重命名
+```bash
+git branch -m old-name new-name
+```
+
+- 查看每个分支的最后一次提交
+```bash
+git branch -v
+```
+
+- 查看本地分支对应的远程分支
+```bash
+git branch -vv
+```
+
+- 创建分支
+```bash
+git branch new-name
+```
+
+- 删除分支
+```bash
+git branch -d branch-name
+```
+
+- 强制删除分支
+```bash
+git branch -D branch-name
+```
