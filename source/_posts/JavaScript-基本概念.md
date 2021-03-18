@@ -23,6 +23,8 @@ function doSomething(){
 }
 ```
 
+<!-- more -->
+
 ### typeof 操作符的返回值
 - "undefined"——如果这个值未定义；
 - "boolean"——如果这个值是布尔值；
@@ -114,5 +116,49 @@ typeof(''+'') //"string"
 typeof(''-'') //"number"
 ```
 
-### 相等操作符
+### 相等操作符转换规则
+如果有一个操作数是布尔值，则在比较相等性之前先将其转换为数值——false 转换为0，而 true 转换为1；
+如果一个操作数是字符串，另一个操作数是数值，在比较相等性之前先将字符串转换为数值；
+`null 和undefined 是相等的。`
+`要比较相等性之前，不能将null 和undefined 转换成其他任何值。`
+如果有一个操作数是NaN，则相等操作符返回false，而不相等操作符返回true。即使两个操作数都是NaN，相等操作符也返回false；因为按照规则，NaN 不等于NaN。
+如果两个操作数都是对象，则比较它们是不是同一个对象。如果两个操作数都指向同一个对象，则相等操作符返回true；否则，返回false。
 
+### 为什么很少使用 with 语句
+严格模式下使用 with 语句会被视为语法错误。
+大量使用 with 语句会导致性能下降，同时也会给调试代码造成困难。
+
+### 看到 switch 的有意思的用法
+```js
+var num = 25;
+switch (true) {
+  case num < 0:
+    alert("Less than 0.");
+    break;
+  case num >= 0 && num <= 10:
+    alert("Between 0 and 10.");
+    break;
+  case num > 10 && num <= 20:
+    alert("Between 10 and 20.");
+    break;
+  default:
+    alert("More than 20.");
+}
+```
+
+### 理解下 arguments 对象
+arguments 对象是类数组结构。
+关于arguments 的行为，还有一点比较有意思。那就是它的值永远与对应命名参数的值保持同步，但他们内存空间是相对独立的。
+```js
+function doAdd(num1, num2) {
+  arguments[1] = 10;
+  alert(arguments[0] + num2);
+}
+doAdd(1,2)  // 11
+doAdd(1)    // NaN
+```
+每次执行这个doAdd()函数都会重写第二个参数，将第二个参数的值修改为10。因为arguments对象中的值会自动反映到对应的命名参数，所以修改arguments[1]，也就修改了num2，结果它们的值都会变成10。
+不过，这并不是说读取这两个值会访问相同的内存空间；它们的内存空间是独立的，但它们的值会同步。
+另外还要记住，如果只传入了一个参数，那么为arguments[1]设置的值不会反应到命名参数中。这是因为arguments 对象的长度是由传入的参数个数决定的，不是由定义函数时的命名参数的个数决定的。
+
+### 
