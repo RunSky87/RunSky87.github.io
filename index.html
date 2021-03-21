@@ -166,6 +166,102 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/19/JavaScript-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://zhangbaoyuan.oss-cn-shanghai.aliyuncs.com/test/head_favicon.ico">
+      <meta itemprop="name" content="张宝元">
+      <meta itemprop="description" content="测试依据一句">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/19/JavaScript-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" class="post-title-link" itemprop="url">JavaScript-常用的引用类型</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-03-19 12:48:53" itemprop="dateCreated datePublished" datetime="2021-03-19T12:48:53+08:00">2021-03-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-21 14:20:05" itemprop="dateModified" datetime="2021-03-21T14:20:05+08:00">2021-03-21</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2021/03/19/JavaScript-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/19/JavaScript-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="方括号语法的优点是啥"><a href="#方括号语法的优点是啥" class="headerlink" title="方括号语法的优点是啥"></a>方括号语法的优点是啥</h3><p>方括号语法的主要优点是可以通过变量来访问属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;<span class="attr">name</span>:<span class="string">&quot;zhang-san&quot;</span>&#125;</span><br><span class="line"><span class="keyword">var</span> propertyName = <span class="string">&quot;name&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person[propertyName]); <span class="comment">// zhang-san</span></span><br></pre></td></tr></table></figure>
+<p>如果属性名中包含会导致语法错误的字符，或者属性名使用的是关键字或保留字，也可以使用方括号表示法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;<span class="string">&quot;my name&quot;</span>:<span class="string">&quot;zhang-san&quot;</span>&#125;</span><br><span class="line"><span class="built_in">console</span>.log(person[<span class="string">&quot;my name&quot;</span>]); <span class="comment">// zhang-san</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="怎么确定某个对象是不是数组"><a href="#怎么确定某个对象是不是数组" class="headerlink" title="怎么确定某个对象是不是数组"></a>怎么确定某个对象是不是数组</h3><p>对于一个网页，或者一个全局作用域而言，使用instanceof 操作符</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (value <span class="keyword">instanceof</span> <span class="built_in">Array</span>)&#123;</span><br><span class="line">  <span class="comment">//对数组执行某些操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>instanceof 操作符的问题在于，它假定只有一个全局执行环境。如果网页中包含多个框架，那实际上就存在两个以上不同的全局执行环境，从而存在两个以上不同版本的Array 构造函数。如果你从一个框架向另一个框架传入一个数组，那么传入的数组与在第二个框架中原生创建的数组分别具有各自不同的构造函数。<br>为了解决这个问题，ECMAScript 5 新增了Array.isArray()方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(value))&#123;</span><br><span class="line">  <span class="comment">//对数组执行某些操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="alert-为什么可以输出数组"><a href="#alert-为什么可以输出数组" class="headerlink" title="alert 为什么可以输出数组"></a>alert 为什么可以输出数组</h3><p>由于alert()要接收字符串参数，所以它会在后台调用toString()方法，由此会得到与直接调用toString()方法相同的结果。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/19/JavaScript-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/18/JavaScript-%E5%8F%98%E9%87%8F%E5%92%8C%E5%86%85%E5%AD%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -934,81 +1030,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/11/Linux%EF%BC%9A%E5%85%B3%E9%97%AD%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://zhangbaoyuan.oss-cn-shanghai.aliyuncs.com/test/head_favicon.ico">
-      <meta itemprop="name" content="张宝元">
-      <meta itemprop="description" content="测试依据一句">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/11/Linux%EF%BC%9A%E5%85%B3%E9%97%AD%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B-md/" class="post-title-link" itemprop="url">Linux：关闭占用端口的进程.md</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-03-11 11:52:04 / Modified: 11:57:42" itemprop="dateCreated datePublished" datetime="2021-03-11T11:52:04+08:00">2021-03-11</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2021/03/11/Linux%EF%BC%9A%E5%85%B3%E9%97%AD%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B-md/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/11/Linux%EF%BC%9A%E5%85%B3%E9%97%AD%E5%8D%A0%E7%94%A8%E7%AB%AF%E5%8F%A3%E7%9A%84%E8%BF%9B%E7%A8%8B-md/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Linux：关闭占用端口的进程"><a href="#Linux：关闭占用端口的进程" class="headerlink" title="Linux：关闭占用端口的进程"></a>Linux：关闭占用端口的进程</h2><ul>
-<li>使用端口号<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost _posts]<span class="comment"># lsof -i:8888</span></span><br><span class="line">bash: lsof: 未找到命令</span><br><span class="line">[root@localhost _posts]<span class="comment"># yum install lsof</span></span><br><span class="line">.....</span><br><span class="line"></span><br><span class="line">[root@localhost _posts]<span class="comment"># lsof -i:8888</span></span><br><span class="line">COMMAND   PID USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME</span><br><span class="line">node    47161 root   20u  IPv6 1354694      0t0  TCP *:ddi-tcp-1 (LISTEN)</span><br><span class="line">[root@localhost _posts]<span class="comment"># kill -9 47161</span></span><br><span class="line">[root@localhost _posts]<span class="comment"># lsof -i:8888</span></span><br><span class="line">[6]+  已杀死               hexo s</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1080,7 +1101,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
