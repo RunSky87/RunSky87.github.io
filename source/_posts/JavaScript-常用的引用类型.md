@@ -17,6 +17,8 @@ var person = {"my name":"zhang-san"}
 console.log(person["my name"]); // zhang-san
 ```
 
+<!-- more -->
+
 ### 怎么确定某个对象是不是数组
 对于一个网页，或者一个全局作用域而言，使用instanceof 操作符
 ```js
@@ -34,8 +36,6 @@ if (Array.isArray(value)){
 
 ### alert 为什么可以输出数组
 由于alert()要接收字符串参数，所以它会在后台调用toString()方法，由此会得到与直接调用toString()方法相同的结果。
-
-<!-- more -->
 
 ### 常用数组方法
 #### 基础操作
