@@ -202,5 +202,268 @@ funcA.test // 12312
 funcA.funcB() // 'funcB'
 ```
 
+### 函数声明和函数表达式的执行时间区别
+解析器在向执行环境中加载数据时，对函数声明和函数表达式并非一视同仁。解析器会率先读取函数声明，并使其在执行任何代码之前可用，至于函数表达式，则必须等到解析器执行到它所在的代码行，才会真正被解释执行。
+在代码开始执行之前，解析器就已经通过一个名为函数声明提升（function declaration hoisting）的过程，读取并将函数声明添加到执行环境中。对代码求值时，JavaScript 引擎在第一遍会声明函数并将它们放到源代码树的顶部。所以，即使声明函数的代码在调用它的代码后面，JavaScript 引擎也能把函数声明提升到顶部。
 
+### 递归解耦 - callee
+```js
+function factorial(num){
+  if (num <=1) {
+    return 1;
+  } else {
+    return num * factorial(num-1)
+  }
+}
 
+------------->
+
+function factorial(num){
+  if (num <=1) {
+    return 1;
+  } else {
+    return num * arguments.callee(num-1)
+  }
+}
+```
+重写后的factorial()函数的函数体内，没有再引用函数名factorial。这样，无论引用函数时使用的是什么名字，都可以保证正常完成递归调用。例如：
+```js
+var trueFactorial = factorial;
+
+factorial = function(){
+  return 0;
+};
+
+alert(trueFactorial(5)); //120
+alert(factorial(5)); //0
+```
+
+### 调用当前函数的函数的引用 - caller
+这个属性中保存着调用当前函数的函数的引用，如果是在全局作用域中调用当前函数，它的值为null。
+```js
+function outer(){
+  inner();
+}
+
+function inner(){
+  console.log(inner.caller);
+}
+outer();
+
+-------->
+
+// ƒ outer(){
+//  inner();
+// }
+```
+因为outer()调用了inter()，所以 inner.caller 就指向outer()。为了实现更松散的耦合，也可以通过arguments.callee.caller 来访问相同的信息。
+```js
+function outer(){
+  inner();
+}
+
+function inner(){
+  alert(arguments.callee.caller);
+}
+
+outer();
+```
+
+### 设置作用域 - apply/call/bind
+每个函数都包含两个非继承而来的方法：apply()和call()。这两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数体内this 对象的值。
+首先，apply()方法接收两个参数：一个是在其中运行函数的作用域，另一个是参数数组。
+call()方法与apply()方法的作用相同，它们的区别仅在于接收参数的方式不同。对于call() 方法而言，第一个参数是this 值没有变化，变化的是其余参数都直接传递给函数。换句话说，在使用 call()方法时，传递给函数的参数必须逐个列举出来，如下面的例子所示。
+```js
+function sum(num1, num2){
+  return num1 + num2;
+}
+
+function callSum1(num1, num2){
+  return sum.apply(this, [num1, num2]); // 传入数组
+}
+
+function callSum2(num1, num2){
+  return sum.call(this, num1, num2); // 单个传入
+}
+```
+事实上，传递参数并非apply()和call()真正的用武之地；它们真正强大的地方是能够扩充函数赖以运行的作用域。
+```js
+window.color = "red";
+
+var o = { color: "blue" };
+
+function sayColor(){
+  alert(this.color);
+}
+
+sayColor(); //red
+sayColor.call(this); //red
+sayColor.call(window); //red
+sayColor.call(o); //blue
+```
+ECMAScript 5 还定义了一个方法：bind()。这个方法会创建一个函数的实例，其this 值会被绑定到传给bind()函数的值。例如：
+```js
+window.color = "red";
+var o = { color: "blue" };
+
+function sayColor(){
+  alert(this.color);
+}
+
+var objectSayColor = sayColor.bind(o);
+objectSayColor(); //blue
+```
+
+### 基本包装类型
+```js
+var s1 = "some text";
+var s2 = s1.substring(2);
+```
+字符串作为基本类型值，为何向引用类型值一样可以调用方法呢。实际上其中经历了如下过程。
+(1) 创建String 类型的一个实例；
+(2) 在实例上调用指定的方法；
+(3) 销毁这个实例。
+可以将以上三个步骤想象成是执行了下列ECMAScript 代码。
+```js
+var s1 = new String("some text");
+var s2 = s1.substring(2);
+s1 = null;
+```
+
+引用类型与基本包装类型的主要区别就是对象的生存期。使用new 操作符创建的引用类型的实例，在执行流离开当前作用域之前都一直保存在内存中。而自动创建的基本包装类型的对象，则只存在于一行代码的执行瞬间，然后立即被销毁。这意味着我们不能在运行时为基本类型值添加属性和方法。来看下面的例子：
+```js
+var s1 = "some text";
+s1.color = "red";
+alert(s1.color); //undefined
+```
+在此，第二行代码试图为字符串s1 添加一个color 属性。但是，当第三行代码再次访问s1 时，其color 属性不见了。问题的原因就是第二行创建的String 对象在执行第三行代码时已经被销毁了。第三行代码又创建自己的String 对象，而该对象没有color 属性。
+
+### 常用方法
+number
+```js
+--- 保留两位小数 ---
+var num = 10;
+alert(num.toFixed(2)); //"10.00"
+10.001.toFixed(2) // "10.00"
+10.005.toFixed(2) // "10.01"
+```
+
+string
+```js
+--- 字符串长度 ---
+var stringValue = "hello world";
+alert(stringValue.length); //"11"
+
+--- 返回给定位置的字符 ---
+var stringValue = "hello world";
+alert(stringValue.charAt(1)); //"e"
+
+--- 指定位置字符的字符编码 ---
+var stringValue = "hello world";
+alert(stringValue.charCodeAt(1)); //输出"101"
+
+--- 以索引访问指定位置字符 ---
+var stringValue = "hello world";
+alert(stringValue[1]); //"e"
+
+--- 拼接字符串 ---
+var stringValue = "hello ";
+var result = stringValue.concat("world");
+alert(result); //"hello world"
+alert(stringValue); //"hello"
+
+var stringValue = "hello ";
+var result = stringValue.concat("world", "!");
+alert(result); //"hello world!"
+alert(stringValue); //"hello"
+
+--- 
+裁剪字符串的三种方式 slice()、substr()和substring()
+具体来说，slice()和 substring()的第二个参数指定的是子字符串最后一个字符后面的位置。
+而substr()的第二个参数指定的则是返回的字符个数。
+如果没有给这些方法传递第二个参数，则将字符串的长度作为结束位置。
+---
+var stringValue = "hello world";
+alert(stringValue.slice(3)); //"lo world"
+alert(stringValue.substring(3)); //"lo world"
+alert(stringValue.substr(3)); //"lo world"
+alert(stringValue.slice(3, 7)); //"lo w"
+alert(stringValue.substring(3,7)); //"lo w"
+alert(stringValue.substr(3, 7)); //"lo worl"
+
+---
+在传递给这些方法的参数是负值的情况下，它们的行为就不尽相同了。
+其中，slice()方法会将传入的负值与字符串的长度相加。
+substr()方法将负的第一个参数加上字符串的长度，而将负的第二个参数转换为0。
+最后，substring()方法会把所有负值参数都转换为0。
+---
+var stringValue = "hello world";
+alert(stringValue.slice(-3)); //"rld"
+alert(stringValue.substring(-3)); //"hello world"
+alert(stringValue.substr(-3)); //"rld"
+alert(stringValue.slice(3, -4)); //"lo w"
+alert(stringValue.substring(3, -4)); //"hel"
+alert(stringValue.substr(3, -4)); //""（空字符串）
+
+--- 查找字符串位置 ---
+var stringValue = "hello world";
+alert(stringValue.indexOf("o")); //4
+alert(stringValue.lastIndexOf("o")); //7
+
+var stringValue = "hello world";
+alert(stringValue.indexOf("o", 6)); //7
+alert(stringValue.lastIndexOf("o", 6)); //4
+
+--- 去除首尾空格 ---
+var stringValue = " hello world ";
+var trimmedStringValue = stringValue.trim();
+alert(stringValue); //" hello world "
+alert(trimmedStringValue); //"hello world"
+
+--- 大小写转换 ---
+var stringValue = "hello world";
+alert(stringValue.toLocaleUpperCase()); //"HELLO WORLD"
+alert(stringValue.toUpperCase()); //"HELLO WORLD"
+alert(stringValue.toLocaleLowerCase()); //"hello world"
+alert(stringValue.toLowerCase()); //"hello world"
+
+--- 查找模式 字符串位置 ---
+var text = "cat, bat, sat, fat";
+var pos = text.search(/at/); // 1
+var pos1 = text.search(/tt/); // -1
+
+--- 字符串替换 ---
+var text = "cat, bat, sat, fat";
+var result = text.replace("at", "ond");
+alert(result); //"cond, bat, sat, fat"
+result = text.replace(/at/g, "ond");
+aler t(result); //"cond, bond, sond, fond"
+
+--- 字符串转数组 ---
+- split()方法可以接受可选的第二个参数，用于指定数组的大小，以便确保返回的数组不会超过既定大小。
+var colorText = "red,blue,green,yellow";
+var colors1 = colorText.split(","); //["red", "blue", "green", "yellow"]
+var colors2 = colorText.split(",", 2); //["red", "blue"]
+
+--- 字符编码转字符串 ---
+alert(String.fromCharCode(104, 101, 108, 108, 111)); //"hello"
+```
+
+math
+```js
+--- 最大和最小值 ---
+var max = Math.max(3, 54, 32, 16);
+alert(max); //54
+var min = Math.min(3, 54, 32, 16);
+alert(min); //3
+
+--- 舍入方法 ---
+  Math.ceil()执行向上舍入，即它总是将数值向上舍入为最接近的整数
+  Math.floor()执行向下舍入，即它总是将数值向下舍入为最接近的整数
+  Math.round()执行标准舍入，即它总是将数值四舍五入为最接近的整数
+
+--- 随机数 ---
+  Math.random()方法返回大于等于0 小于1 的一个随机数
+值 = Math.floor(Math.random() * 可能值的总数 + 第一个可能的值)
+1到10之间的数值：var num = Math.floor(Math.random() * 10 + 1);
+```
